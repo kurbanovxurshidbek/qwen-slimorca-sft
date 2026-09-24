@@ -1,0 +1,102 @@
+# ============================================================
+# Model
+# ============================================================
+
+base_model: Qwen/Qwen2.5-3B-Instruct
+
+load_in_8bit: false
+load_in_4bit: false
+
+# ============================================================
+# Dataset
+# ============================================================
+
+datasets:
+  - path: train.jsonl
+    type: chat_template
+
+dataset_prepared_path: preprocess
+
+val_set_size: 0.01
+
+output_dir: ./outputs
+
+# ============================================================
+# Dataloader
+# ============================================================
+
+dataloader_num_workers: 16
+
+# ============================================================
+# Sequence / Attention
+# ============================================================
+
+sequence_len: 8192
+
+sample_packing: false
+eval_sample_packing: false
+pad_to_sequence_len: false
+
+attn_implementation: flash_attention_2
+
+# ============================================================
+# Training
+# ============================================================
+
+micro_batch_size: 8
+gradient_accumulation_steps: 4
+num_epochs: 3
+
+optimizer: adamw_torch_fused
+
+lr_scheduler: cosine
+
+learning_rate: 2e-5
+
+warmup_ratio: 0.05
+
+weight_decay: 0.01
+
+# ============================================================
+# Precision
+# ============================================================
+
+bf16: true
+
+tf32: true
+
+# ============================================================
+# Memory Optimization
+# ============================================================
+
+gradient_checkpointing: true
+
+# ============================================================
+# Logging
+# ============================================================
+
+logging_steps: 1
+
+evals_per_epoch: 1
+
+saves_per_epoch: 1
+
+# ============================================================
+# Weights & Biases
+# ============================================================
+
+wandb_project: qwen2.5-sft
+
+wandb_entity: infocuslabs
+
+wandb_watch: "false"
+
+wandb_name: qwen2.5-3b-slimorca-5k
+
+wandb_log_model: "false"
+
+# ============================================================
+# Hugging Face Hub
+# ============================================================
+
+hub_model_id: kurbanovxurshidbek/qwen2.5-3b-slimorca-sft
