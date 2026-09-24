@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use these artifacts, please cite the associated paper."
+title: "Task-Dependent Effects of SlimOrca Supervised Fine-Tuning on Qwen2.5-3B-Instruct"
+authors:
+  - family-names: Kurbanov
+    given-names: Khurshidbek
+    affiliation: "Tashkent International University"
+repository-code: "https://github.com/kurbanovxurshidbek/qwen-slimorca-sft"
+license: MIT
+year: 2026

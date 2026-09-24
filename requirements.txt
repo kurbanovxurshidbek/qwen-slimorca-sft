@@ -1,0 +1,9 @@
+# Evaluation
+lm-eval==0.4.11          # or install from https://github.com/EleutherAI/lm-evaluation-harness
+transformers==5.16.1
+
+# Dataset preparation
+datasets
+pandas
+
+# Training: install Axolotl following https://github.com/axolotl-ai-cloud/axolotl
